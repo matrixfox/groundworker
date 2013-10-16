@@ -7,8 +7,6 @@
 <?php $wp_query = new WP_QUERY; ?>
 <?php $wp_query->query( 'posts_per_page=3&paged=' . $paged ); ?>
 
-<?php get_template_part( 'nav', 'above' ); ?>
-
 <?php while ( have_posts() ) : the_post() ?>
 <?php get_template_part( 'entry', 'blog' ); ?>
 <?php comments_template(); ?>
