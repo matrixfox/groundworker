@@ -27,7 +27,7 @@
 <div id="site-title"><?php if ( ! is_singular() ) {echo '<h1>';} ?><a href="<?php echo esc_url(home_url('/')); ?>" title="<?php esc_attr_e( get_bloginfo('name'), 'blankslate' ); ?>" rel="home"><?php echo esc_html( get_bloginfo('name') ); ?></a><?php if ( ! is_singular() ) {echo '</h1>';} ?></div>
 <div id="site-description"><?php bloginfo('description'); ?></div>
 </section>
-<nav role="navigation" class="nav">
+<nav role="navigation" class="nav fadeIn animated">
   <ul role="menubar">
     <li><a href="http://localhost/wordpress/"><i class="icon-home"></i> Home</a></li>
     <?php wp_list_pages('title_li=' ); ?>
