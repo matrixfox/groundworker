@@ -1,4 +1,43 @@
 <?php
+
+function catch_everything() {
+global $post, $posts;
+$first_img = '';
+$match = array();
+ob_start();
+ob_end_clean();
+$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+$first_img = $matches[1][0];
+if ( $first_img != '' ) {
+return $first_img;
+}
+preg_match('#https?://www\.youtube(?:\-nocookie)?\.com/embed/([A-Za-z0-9\-_]+)#', $post->post_content, $match);
+if ( $match[1] != '' ) {
+return 'http://img.youtube.com/vi/'.$match[1].'/0.jpg';
+}
+preg_match('#(?:https?(?:a|vh?)?://)?(?:www\.)?youtube(?:\-nocookie)?\.com/watch\?.*v=([A-Za-z0-9\-_]+)#', $post->post_content, $match);
+if ( $match[1] != '' ) {
+return 'http://img.youtube.com/vi/'.$match[1].'/0.jpg';
+}
+preg_match('#http://player\.vimeo\.com/video/([0-9]+)#', $post->post_content, $match);
+if ( $match[1] != '' ) {
+$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$match[1].php"));
+return $hash[0]['thumbnail_large'];
+}
+preg_match('#(?:http://)?(?:www\.)?vimeo\.com/([A-Za-z0-9\-_]+)#', $post->post_content, $match);
+if ( $match[1] != '' ) {
+$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$match[1].php"));
+return $hash[0]['thumbnail_large'];
+}
+else {
+return 'http://placehold.it/750x400/2ecc71/ffffff/&amp;text=Default+Image';
+}
+}
+
+
+
+
+
 add_action('after_setup_theme', 'blankslate_setup');
 function blankslate_setup()
 {
