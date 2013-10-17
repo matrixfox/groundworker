@@ -1,6 +1,7 @@
 <div class="blog-content">
 
-
+<!-- Display the Title as a link to the Post's permalink. -->
+<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Hyperlink to <?php the_title_attribute(); ?>"><?php $test_the_title = $post->post_title; echo substr($test_the_title, 0, 64); ?></a></h2>
 
 <?php
 if ( get_the_post_thumbnail($post_id) != '' ) {
