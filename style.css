@@ -24,6 +24,10 @@ code {
 #sidebar li {
   list-style: none; }
 
+#searchsubmit {
+  margin: 10px 0 10px 0;
+  width: 100%; }
+
 /*
  * Responsive images
  *
