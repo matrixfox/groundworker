@@ -4,8 +4,7 @@
     <!-- Modernizr -->
     <script src="<?php bloginfo('stylesheet_directory'); ?>/js/libs/modernizr-2.6.2.min.js"></script>
     <!-- jQuery-->
-    <script src="../../js/jquery.js"></script>
-    <!--<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' type='text/javascript'></script>-->
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
     <!-- javascript-->
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/groundwork.all.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/script.js"></script>
