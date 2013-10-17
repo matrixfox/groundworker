@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section id="content" role="main">
+<section id="content" class="padded one bounceInDown animated" role="main">
 <header class="header">
 <h1 class="entry-title"><?php _e( 'Tag Archives: ', 'blankslate' ); ?><span><?php single_tag_title(); ?></span></h1>
 </header>
