@@ -38,46 +38,46 @@ return 'http://placehold.it/750x400/2ecc71/ffffff/&amp;text=Default+Image';
 
 
 
-add_action('after_setup_theme', 'blankslate_setup');
+add_action('after_setup_theme', 'groundworker_setup');
 function blankslate_setup()
 {
-load_theme_textdomain('blankslate', get_template_directory() . '/languages');
+load_theme_textdomain('groundworker', get_template_directory() . '/languages');
 add_theme_support('automatic-feed-links');
 add_theme_support('post-thumbnails');
 global $content_width;
 if ( ! isset( $content_width ) ) $content_width = 640;
 register_nav_menus(
-array( 'main-menu' => __( 'Main Menu', 'blankslate' ) )
+array( 'main-menu' => __( 'Main Menu', 'groundworker' ) )
 );
 }
-add_action('wp_enqueue_scripts', 'blankslate_load_scripts');
-function blankslate_load_scripts()
+add_action('wp_enqueue_scripts', 'groundworker_load_scripts');
+function groundworker_load_scripts()
 {
 wp_enqueue_script('jquery');
 }
-add_action('comment_form_before', 'blankslate_enqueue_comment_reply_script');
-function blankslate_enqueue_comment_reply_script()
+add_action('comment_form_before', 'groundworker_enqueue_comment_reply_script');
+function groundworker_enqueue_comment_reply_script()
 {
 if (get_option('thread_comments')) { wp_enqueue_script('comment-reply'); }
 }
-add_filter('the_title', 'blankslate_title');
-function blankslate_title($title) {
+add_filter('the_title', 'groundworker_title');
+function groundworker_title($title) {
 if ($title == '') {
 return '&rarr;';
 } else {
 return $title;
 }
 }
-add_filter('wp_title', 'blankslate_filter_wp_title');
-function blankslate_filter_wp_title($title)
+add_filter('wp_title', 'groundworker_filter_wp_title');
+function groundworker_filter_wp_title($title)
 {
 return $title . esc_attr(get_bloginfo('name'));
 }
-add_action('widgets_init', 'blankslate_widgets_init');
-function blankslate_widgets_init()
+add_action('widgets_init', 'groundworker_widgets_init');
+function groundworker_widgets_init()
 {
 register_sidebar( array (
-'name' => __('Sidebar Widget Area', 'blankslate'),
+'name' => __('Sidebar Widget Area', 'groundworker'),
 'id' => 'primary-widget-area',
 'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 'after_widget' => "</li>",
@@ -85,15 +85,15 @@ register_sidebar( array (
 'after_title' => '</h3>',
 ) );
 }
-function blankslate_custom_pings($comment)
+function groundworker_custom_pings($comment)
 {
 $GLOBALS['comment'] = $comment;
 ?>
 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo comment_author_link(); ?></li>
 <?php 
 }
-add_filter('get_comments_number', 'blankslate_comments_number');
-function blankslate_comments_number($count)
+add_filter('get_comments_number', 'groundworker_comments_number');
+function groundworker_comments_number($count)
 {
 if (!is_admin()) {
 global $id;
