@@ -1,6 +1,6 @@
 <?php /* Template Name: Blog Page 1 */ ?>
 <?php get_header(); ?>
-<div id="content" class="padded two thirds bounceInDown animated">
+<div id="content" class="padded three fourths bounceInDown animated">
 
 <?php $temp = $wp_query; ?>
 <?php $wp_query = null; ?>
